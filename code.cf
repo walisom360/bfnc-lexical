@@ -1,8 +1,8 @@
--- Declarações de Variáveis e Constantes
+-- declare Variables and Constants
 VarDecl. Stm ::= "var" Ident ":" Type "=" Exp ";";
 ConstDecl. Stm ::= "const" Ident ":" Type "=" Exp ";";
 
--- Tipos
+-- Types
 TypeChar. Type ::= "char";
 TypeNumber. Type ::= "number";
 TypeBoolean. Type ::= "boolean";
@@ -11,7 +11,7 @@ TypeUndefined. Type ::= "undefined";
 TypeArray. Type ::= "array";
 TypePtr. Type ::= "ptr";
 
--- Comandos
+-- Comands
 Assign. Stm ::= "let" Ident "=" Exp ";";
 If. Stm ::= "if" "(" Exp ")" Stm "else" Stm;
 For. Stm ::= "for" "(" Stm ";" Exp ";" Stm ")" Stm;
@@ -19,7 +19,7 @@ Goto. Stm ::= "goto" Ident ";";
 Malloc. Stm ::= "malloc" "(" Exp ")" ";";
 Sizeof. Exp ::= "sizeof" "(" Type ")";
 
--- Operadores e Expressões
+-- Operators and Expressions
 Plus. Exp ::= Exp "+" Exp;
 Minus. Exp ::= Exp "-" Exp;
 Times. Exp ::= Exp "*" Exp;
@@ -31,15 +31,15 @@ Lt. Exp ::= Exp "<" Exp;
 Ge. Exp ::= Exp ">=" Exp;
 Le. Exp ::= Exp "<=" Exp;
 
--- Ponteiros
+-- Pointers
 PtrAssign. Stm ::= Ident "=" "ptr" "(" Exp ")" ";";
 PtrDeref. Exp ::= "*" Ident;
 
--- Identificadores e Literais
+-- Identifiers and Literals
 token Ident (letter (letter | digit | '_')*);
 token IntLiteral digit+;
 token CharLiteral '\'' (char - ["'\\"] | '\\' ["'\\tnrf"]) '\'';
 
--- Comentários
+-- Comments
 comment "//";
 comment "/*" "*/";

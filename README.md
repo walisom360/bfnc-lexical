@@ -3,7 +3,7 @@
 You need a running
 
 ```bash
-run bnfc -m --c codigo.cf 
+run bnfc -m --c code.cf 
 ```
 
 and
