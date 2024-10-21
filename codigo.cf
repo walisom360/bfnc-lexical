@@ -1,0 +1,45 @@
+-- Declarações de Variáveis e Constantes
+VarDecl. Stm ::= "var" Ident ":" Type "=" Exp ";";
+ConstDecl. Stm ::= "const" Ident ":" Type "=" Exp ";";
+
+-- Tipos
+TypeChar. Type ::= "char";
+TypeNumber. Type ::= "number";
+TypeBoolean. Type ::= "boolean";
+TypeNull. Type ::= "null";
+TypeUndefined. Type ::= "undefined";
+TypeArray. Type ::= "array";
+TypePtr. Type ::= "ptr";
+
+-- Comandos
+Assign. Stm ::= "let" Ident "=" Exp ";";
+If. Stm ::= "if" "(" Exp ")" Stm "else" Stm;
+For. Stm ::= "for" "(" Stm ";" Exp ";" Stm ")" Stm;
+Goto. Stm ::= "goto" Ident ";";
+Malloc. Stm ::= "malloc" "(" Exp ")" ";";
+Sizeof. Exp ::= "sizeof" "(" Type ")";
+
+-- Operadores e Expressões
+Plus. Exp ::= Exp "+" Exp;
+Minus. Exp ::= Exp "-" Exp;
+Times. Exp ::= Exp "*" Exp;
+Div. Exp ::= Exp "/" Exp;
+Eq. Exp ::= Exp "==" Exp;
+Neq. Exp ::= Exp "!=" Exp;
+Gt. Exp ::= Exp ">" Exp;
+Lt. Exp ::= Exp "<" Exp;
+Ge. Exp ::= Exp ">=" Exp;
+Le. Exp ::= Exp "<=" Exp;
+
+-- Ponteiros
+PtrAssign. Stm ::= Ident "=" "ptr" "(" Exp ")" ";";
+PtrDeref. Exp ::= "*" Ident;
+
+-- Identificadores e Literais
+token Ident (letter (letter | digit | '_')*);
+token IntLiteral digit+;
+token CharLiteral '\'' (char - ["'\\"] | '\\' ["'\\tnrf"]) '\'';
+
+-- Comentários
+comment "//";
+comment "/*" "*/";
